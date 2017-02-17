@@ -1,7 +1,8 @@
+
 #navbar{
   border: 1px solid #9C9C9C;
   height: 120px ;
-  line-height: 100px;
+  line-height: 120px;
   background-color: #fff;
   color: black;
 }
@@ -13,13 +14,32 @@
   float: right;
 }
 
-#userInfo li{
+#userInfo > li{
   padding: 2px;
   display: block;
   text-decoration: none;
 }
 
+#userName, #userTitle{
+  font-weight: bold;
+}
+
 #banner {
-  /*zoom: 150%;*/
-margin-top: 25px;
+  zoom: 120%;
+}
+
+#arrow{
+  color: #008B78;
+}
+
+.light-text{
+  color: #979797
+}
+
+.normal-text{
+  color: #333A39;
+}
+
+.med-text{
+  color: #605E5E;
 }

@@ -10,9 +10,9 @@ const header = () => {
 
         <div className="col-xs-6">
           <ul id="userInfo">
-                <li id="userStatus">SIGNED IN AS</li>
-                <li id="userName">Taj A. English</li>
-                <li id="userTitle">Software Engineer</li>
+                <li className="light-text">SIGNED IN AS</li>
+                <li id="userName" className="normal-text">Taj A. English <span id="arrow">&#9660;</span></li>
+                <li id="userTitle" className="normal-text">Software Engineer</li>
               </ul>
             </div>
       </div>
