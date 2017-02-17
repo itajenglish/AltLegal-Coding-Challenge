@@ -8,7 +8,7 @@
 }
 
 #userInfo{
-  margin-top: 25px;
+  padding-top: 25px;
   padding-right: 60px;
   line-height: normal;
   float: right;
@@ -30,6 +30,41 @@
 
 #arrow{
   color: #008B78;
+}
+
+/*Resize Header on smaller screens*/
+@media only screen and (max-width : 520px) {
+
+  #navbar{
+    border: 1px solid #9C9C9C;
+    height: 50px ;
+    line-height: 50px;
+    background-color: #fff;
+    color: black;
+  }
+
+  #userInfo{
+    padding-top: 0px;
+    padding-right: 0px;
+    line-height: normal;
+    float: right;
+  }
+
+  #userInfo > li{
+    font-size: .80em;
+    padding: 2px;
+    display: block;
+    text-decoration: none;
+  }
+
+  #userStatus{
+    display: none !important;
+  }
+
+  #banner {
+    zoom: 80%;
+  }
+
 }
 
 .light-text{
