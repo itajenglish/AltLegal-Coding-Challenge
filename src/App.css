@@ -20,6 +20,7 @@
 }
 
 #userName, #userTitle{
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
 
@@ -30,7 +31,6 @@
 #arrow{
   color: #008B78;
 }
-
 
 .light-text{
   color: #979797
