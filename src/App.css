@@ -23,10 +23,12 @@
   font-size: 1.6em;
 }
 
-#searchBox:focus {
+#searchBox:focus  {
   outline: none;
   border-bottom: 1px dashed #9C9C9C;
 }
+
+
 
 #userInfo {
   padding-top: 25px;
