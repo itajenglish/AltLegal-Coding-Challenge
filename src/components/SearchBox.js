@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import { valHash } from '../../helpers/validateHashTag'
 
 class SearchBox extends Component {
+
+  handleChange(event){
+    console.log(event.target.value);
+    console.log(valHash(event.target.value));
+  }
+
   render() {
     return (
-      <div id="searchBoxContainer" className="panel panel-default">
+      <div id="searchBoxContainer" >
         <div className="panel-body">
-          <input id="searchBox" type="text" placeholder="Add a hashtag"/>
+          <input id="searchBox" onChange={(event) => this.handleChange(event)} type="text" style={null} placeholder="Add a hashtag"/>
         </div>
       </div>
     )
