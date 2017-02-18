@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Header from './components/header';
+import Header from './components/Header';
+import SearchBox from './components/SearchBox';
+import Card from './components/Card';
 import './App.css';
 
 class App extends Component {
@@ -7,21 +9,21 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+
         <div className="container">
           <div className="row">
 
             <div className="col-md-4">
-              <p>Col 1</p>
+              <SearchBox />
+              <Card />
             </div>
 
             <div className="col-md-4">
-              <p>Col 1</p>
-
+              <Card />
             </div>
 
             <div className="col-md-4">
-              <p>Col 1</p>
-
+              <Card />
             </div>
 
           </div>

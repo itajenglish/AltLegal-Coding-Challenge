@@ -6,6 +6,29 @@
   color: black;
 }
 
+#searchBoxContainer{
+  height: 60px;
+  border: 1px solid #9C9C9C;
+}
+
+#searchBox:focus{
+  #searchBoxContainer{
+    border: 1px solid blue;
+  }
+}
+
+#searchBox{
+  width: 100%;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6em;
+}
+
+#searchBox:focus {
+  outline: none;
+  border-bottom: 1px dashed #9C9C9C;
+}
+
 #userInfo{
   padding-top: 25px;
   padding-right: 60px;
@@ -42,6 +65,14 @@
 
 .med-text{
   color: #605E5E;
+}
+
+.panel-heading{
+  border: 1px solid red
+}
+
+.container{
+  padding-top: 20px;
 }
 
 /*Mobile Device Styling Below*/
