@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from './components/Header';
 import Card from './components/Card';
+import SearchBox from './components/SearchBox'
 import Api from '../utils/Api';
 import './App.css';
 
@@ -9,6 +10,7 @@ class App extends Component {
     super();
 
     this.state = {
+      activeCardNumber: 0,
       card_one_active: false,
       card_two_active: false,
       card_three_active: false
@@ -21,28 +23,64 @@ class App extends Component {
       this.setState({activeCardNumber: response.data.length});
 
       //Set Card Active State Based On Array Length.
-    switch (response.data.length) {
-  case 1:
-    this.setState({card_one_active: true});
-    console.log(`card: 1 Active!`)
-    break;
-  case 2:
-    this.setState({card_one_active: true, card_two_active: true});
-    console.log(`card: 2 Active!`)
-    break;
-  case 3:
-    this.setState({card_one_active: true, card_two_active: true, card_three_active: true});
-    console.log(`card: 2 Active!`)
-    break;
-  default:
-    return
-}
-
-      console.log(response);
+      //Each Array Index Will Represent Each CardID
+      switch (response.data.length) {
+        case 1:
+          this.setState({card_one_active: true});
+          console.log('card: 1 Active!')
+          break;
+        case 2:
+          this.setState({card_one_active: true, card_two_active: true});
+          console.log('card: 2 Active!')
+          break;
+        case 3:
+          this.setState({card_one_active: true, card_two_active: true, card_three_active: true});
+          console.log('card: 3 Active!')
+          break;
+        default:
+          return
+      }
     }).catch((err) => {
       console.log(err);
     })
 
+  }
+
+/*
+Render Card Functions Check Active State Of Other Cards..
+In Order To Know Where To Render SearchBox
+*/
+  renderCardOne() {
+    const state = this.state;
+    if (state.card_one_active === true) {
+      return <Card id={1} />
+    } else if (state.card_one_active === false && state.card_two_active && state.card_three_active === true) {
+      return <SearchBox cardID={1}/>
+    } else if (state.card_one_active === false && state.card_two_active === false && state.card_three_active === true) {
+      return <SearchBox cardID={1}/>
+    } else if (state.card_one_active === false && (state.card_two_active || state.card_three_active === false)) {
+      return <SearchBox cardID={1}/>
+    }
+  }
+
+  renderCardTwo() {
+    const state = this.state;
+    if (state.card_two_active === true) {
+      return (<Card id={2} />)
+    } else if (state.card_two_active === false && state.card_one_active && state.card_three_active === true) {
+      return <SearchBox cardID={2}/>
+    } else if (state.card_two_active === false && state.card_one_active === true && state.card_three_active === false) {
+      return <SearchBox cardID={2}/>
+    }
+  }
+
+  renderCardThree() {
+    const state = this.state;
+    if (state.card_three_active === true) {
+      return (<Card id={3} />)
+    } else if (state.card_three_active === false && state.card_one_active && state.card_two_active === true) {
+      return <SearchBox cardID={3}/>
+    }
   }
 
   render() {
@@ -54,15 +92,15 @@ class App extends Component {
           <div className="row">
 
             <div className="col-md-4">
-              <Card id={1} cardState={this.state.card_one_active}/>
+              {this.renderCardOne()}
             </div>
 
             <div className="col-md-4">
-              <Card id={2} cardState={this.state.card_two_active}/>
+              {this.renderCardTwo()}
             </div>
 
             <div className="col-md-4">
-              <Card id={3} cardState={this.state.card_three_active}/>
+              {this.renderCardThree()}
             </div>
 
           </div>
