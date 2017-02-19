@@ -3,14 +3,17 @@ import {valHash} from '../../helpers/validateHashTag'
 
 class SearchBox extends Component {
 
+  //Sets PlaceHolder Text To Empty When Entering Edit Mode.
   handleFocus(event) {
     event.target.placeholder = '';
   }
 
+  //Sets PlaceHolder Text When Leaving Edit Node.
   handleBlur(event) {
     event.target.placeholder = 'Add a hashtag'
   }
 
+  //Handles Information Type Into The Input Field.
   handleChange(event) {
     console.log(event);
     console.log(valHash(event.target.value));

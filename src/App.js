@@ -3,8 +3,10 @@ import Header from './components/Header';
 import SearchBox from './components/SearchBox';
 import Card from './components/Card';
 import './App.css';
+import Api from '../utils/Api';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
