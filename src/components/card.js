@@ -12,6 +12,8 @@ class Card extends Component {
       card_id: null,
       hashtag: null,
       tweets: null,
+      inEditState: false,
+      inEditMode: false,
       isLoading: true
     }
   }
@@ -68,13 +70,54 @@ class Card extends Component {
     }
   }
 
+  //When User Hovers Over Top of card
+  editState() {
+    if(this.state.inEditState === true && this.state.inEditMode === false){
+      return (
+        <div>
+          <div className="row">
+            <div className="col-xs-4">
+              <p id="cardHeaderText" className="normal-text">
+                {this.state.hashtag}
+              </p>
+              </div>
+            <div className="col-xs-4">
+              <button type="button" onClick={() => this.setState({inEditMode: true})} id="editButton" className="btn btn-warning">
+              <span className="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                Edit
+          </button>
+            </div>
+            <div className="col-xs-4">
+              <button type="button" className="btn btn-danger">
+              <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                Delete
+          </button>
+            </div>
+          </div>
+        </div>
+      )
+    } else if (this.state.inEditState === true && this.state.inEditMode === true){
+      return null
+    } else if (this.state.inEditState === false && this.state.inEditMode === false){
+      return <p id="cardHeaderText" className="normal-text">{this.state.hashtag}</p>
+    }
+  }
+
+  //When User Clicks Edit button
+  editMode() {
+    if(this.state.inEditMode === true){
+      return <SearchBox />
+    } else {
+      return null
+    }
+  }
 
   render() {
-    console.log(this.props)
     return (
       <div id="cardContainer">
-        <div id="cardTopContainer" className="panel-body">
-          <p id="cardHeaderText" className="normal-text">{this.state.hashtag}</p>
+        <div id="cardTopContainer" onMouseEnter={() => this.setState({inEditState: true})} onMouseLeave={() => this.setState({inEditState: false})} className="panel-body">
+          {this.editState()}
+          {this.editMode()}
         </div>
         <div className="panel-body">
           {this.isLoading()}

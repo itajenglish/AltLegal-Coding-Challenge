@@ -105,6 +105,13 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+#editButton{
+  margin-left: 30px;
+}
+
+.button{
+  font-family: 'Lato', sans-serif;
+}
 .collection {
   height: 380px;
   overflow: auto;
