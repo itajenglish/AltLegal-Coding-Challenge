@@ -3,7 +3,7 @@ import { valHash } from '../../helpers/validateHashTag';
 import Api from '../../utils/Api';
 
 
-class SearchBox extends Component {
+class EditSearchBox extends Component {
   constructor(){
     super();
     this.state = {
@@ -55,14 +55,12 @@ class SearchBox extends Component {
         //Clear Inputbox
         event.target.value = '';
 
-        const data = {
-          'hashtag': this.state.hashtag,
-          'card_id': this.state.card_id
-        }
-
-        Api.addNewWatchlist(data)
+        const hashtag = {'hashtag': this.state.hashtag};
+        const card_id = this.props.cardID;
+        Api.updateWatchlist(card_id, hashtag)
         .then((response) => {
           //Calls Component Will Mount Function In App To Refresh State
+          this.props.updateEditMode()
           this.props.refreshCard()
           console.log(response);
         })
@@ -74,7 +72,7 @@ class SearchBox extends Component {
     }
   }
 
-  renderSearchbox(){
+  editSearchBox(){
     if (this.state.printError === true){
       return (
         <div id="searchBoxContainerError">
@@ -96,8 +94,8 @@ class SearchBox extends Component {
   }
 
   render() {
-    return (this.renderSearchbox())
+    return (this.editSearchBox())
   }
 }
 
-export default SearchBox;
+export default EditSearchBox;

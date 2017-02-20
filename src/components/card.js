@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Api from '../../utils/Api';
-import SearchBox from '../components/SearchBox';
+import EditSearchBox from '../components/EditSearchBox';
 import ReactSpinner from 'react-spinjs';
 import { hashTagSplit } from '../../helpers/hashTagSplit';
 
@@ -16,6 +16,8 @@ class Card extends Component {
       inEditMode: false,
       isLoading: true
     }
+    this.updateEditMode = this.updateEditMode.bind(this);
+    this.refreshCard = this.componentWillMount.bind(this)
   }
 
   componentWillMount() {
@@ -106,10 +108,14 @@ class Card extends Component {
   //When User Clicks Edit button
   editMode() {
     if(this.state.inEditMode === true){
-      return <SearchBox />
+      return <EditSearchBox cardID={this.state.card_id} refreshCard={this.refreshCard} updateEditMode={this.updateEditMode} />
     } else {
       return null
     }
+  }
+  //Pass Down To EditSearchBox To Update Edit State After Succesful Put Request.
+  updateEditMode() {
+    this.setState({inEditState: false, inEditMode: false})
   }
 
   render() {
