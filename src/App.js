@@ -55,11 +55,11 @@ In Order To Know Where To Render SearchBox
     if (state.card_one_active === true) {
       return <Card id={1} />
     } else if (state.card_one_active === false && state.card_two_active && state.card_three_active === true) {
-      return <SearchBox cardID={1}/>
+      return <SearchBox cardID={1} refreshCard={this.componentWillMount.bind(this)} />
     } else if (state.card_one_active === false && state.card_two_active === false && state.card_three_active === true) {
-      return <SearchBox cardID={1}/>
+      return <SearchBox cardID={1} refreshCard={this.componentWillMount.bind(this)} />
     } else if (state.card_one_active === false && (state.card_two_active || state.card_three_active === false)) {
-      return <SearchBox cardID={1}/>
+      return <SearchBox cardID={1} refreshCard={this.componentWillMount.bind(this)} />
     }
   }
 
@@ -68,9 +68,9 @@ In Order To Know Where To Render SearchBox
     if (state.card_two_active === true) {
       return (<Card id={2} />)
     } else if (state.card_two_active === false && state.card_one_active && state.card_three_active === true) {
-      return <SearchBox cardID={2}/>
+      return <SearchBox cardID={2} refreshCard={this.componentWillMount.bind(this)} />
     } else if (state.card_two_active === false && state.card_one_active === true && state.card_three_active === false) {
-      return <SearchBox cardID={2}/>
+      return <SearchBox cardID={2} refreshCard={this.componentWillMount.bind(this)} />
     }
   }
 
@@ -79,7 +79,7 @@ In Order To Know Where To Render SearchBox
     if (state.card_three_active === true) {
       return (<Card id={3} />)
     } else if (state.card_three_active === false && state.card_one_active && state.card_two_active === true) {
-      return <SearchBox cardID={3}/>
+      return <SearchBox cardID={3} refreshCard={this.componentWillMount.bind(this)} />
     }
   }
 

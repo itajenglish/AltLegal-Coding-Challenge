@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import { valHash } from '../../helpers/validateHashTag'
+import { valHash } from '../../helpers/validateHashTag';
+import Api from '../../utils/Api';
+
 
 class SearchBox extends Component {
   constructor(){
     super();
     this.state = {
+      card_id: null,
+      hashtag: null,
       printError: false
     }
+  }
+
+  componentDidMount(){
+    //Set CardID To Match Which Card #Hashtag Belongs To.
+    this.setState({card_id: this.props.cardID})
   }
 
   //Sets PlaceHolder Text To Empty When Entering Edit Mode.
@@ -22,13 +31,14 @@ class SearchBox extends Component {
 
   //Handles Information Typed Into The Input Field.
   handleChange(event) {
-    console.log(event);
-    console.log(valHash(event.target.value));
-
+    //Checks if Text is a hashtag. Returns Truthy or Falusy Value.
     if(!valHash(event.target.value)){
       this.setState({printError: true});
     } else{
-      this.setState({printError: false});
+      this.setState({
+        printError: false,
+        hashtag: event.target.value
+      });
 
       setTimeout(()=>{
         console.log("Working")
@@ -37,13 +47,31 @@ class SearchBox extends Component {
   }
 
   handleKeyPress(event){
-
+    //If ESC Key Presed Return To Edit Mode.
     if(event.keyCode === 27){
-      console.log("ESC KEY")
+      event.target.value = '';
+      this.setState({hashtag: null})
+      console.log("ESC KEY");
     }
-    //If Enter Key Pressed Hit Twitter Api and Save To Database
     if(valHash(event.target.value) === true){
+      //If Enter Key Pressed Hit Twitter Api and Save To Database
       if(event.keyCode === 13){
+        //Clear Inputbox
+        event.target.value = '';
+
+        const data = {
+          'hashtag': this.state.hashtag,
+          'card_id': this.state.card_id
+        }
+
+        Api.addNewWatchlist(data)
+        .then((response) => {
+          this.props.refreshCard()
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
         console.log("Enter KEY");
       }
     }
@@ -71,6 +99,7 @@ class SearchBox extends Component {
   }
 
   render() {
+    console.log("worked")
     return (this.renderSearchbox())
   }
 }
