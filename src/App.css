@@ -6,6 +6,18 @@
   color: black;
 }
 
+#cardContainer {
+  height: 500px;
+  margin-bottom: 20px;
+  border: 1px solid #9C9C9C;
+}
+
+#cardTopContainer {
+  height: 60px;
+  margin-bottom: 20px;
+  border: 1px solid #9C9C9C;
+}
+
 #searchBoxContainer {
   height: 60px;
   margin-bottom: 20px;
@@ -77,6 +89,25 @@
 #errorText{
   font-family: 'Lato', sans-serif;
   color: #BE1413;
+}
+
+#cardHeaderText{
+  font-size: 1.8em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#twitterName{
+  font-family: 'Montserrat', sans-serif;
+}
+
+#twitterUsername{
+  font-size: 1em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.collection {
+  height: 380px;
+  overflow: auto;
 }
 
 .light-text {

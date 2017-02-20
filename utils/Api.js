@@ -9,5 +9,10 @@ module.exports = {
   },
   getOneWatchlist: (card_id) => {
     return axios.get(`http://localhost:8080/api/watchlist/${card_id}`)
+  },
+  getTweets: (hashtag) => {
+    console.log(hashtag)
+    return axios.get(`http://localhost:8080/api/tweets/${hashtag}`)
   }
+
 }
