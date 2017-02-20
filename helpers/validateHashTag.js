@@ -1,6 +1,6 @@
 module.exports = {
-  valHash: (text) => {
+  valHash: (hashtag) => {
     const regExpression = /\B(\#[a-zA-Z]+\b)(?!;)/;
-    return regExpression.test(text)
+    return regExpression.test(hashtag)
   }
 }

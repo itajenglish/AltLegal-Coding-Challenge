@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Header from './components/Header';
 import Card from './components/Card';
 import SearchBox from './components/SearchBox'
@@ -21,7 +21,7 @@ class App extends Component {
     //Gets Number Of Watchlists and sets number to activeCardNumber in state.
     Api.getAllWatchlist().then((response) => {
       this.setState({activeCardNumber: response.data.length});
-
+      console.log(response);
       //Set Card Active State Based On Array Length.
       //Each Array Index Will Represent Each CardID
       switch (response.data.length) {

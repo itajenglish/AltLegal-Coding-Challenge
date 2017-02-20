@@ -12,6 +12,12 @@
   border: 1px solid #9C9C9C;
 }
 
+#searchBoxContainerError {
+  height: 70px;
+  margin-bottom: 20px;
+  border: 1px solid #BE1413;
+}
+
 #searchBoxContainer:hover {
   border: 1px solid #137ABE;
 }
@@ -24,9 +30,22 @@
   font-size: 1.6em;
 }
 
+#searchBoxError{
+  width: 100%;
+  border: none;
+  border-radius: 0%;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6em;
+}
+
 #searchBox:focus  {
   outline: none;
-  border-bottom: 1px dashed #9C9C9C;
+  border-bottom: 2px dashed #9C9C9C;
+}
+
+#searchBoxError:focus  {
+  outline: none;
+  border-bottom: 2px dashed #BE1413;
 }
 
 #userInfo {
@@ -53,6 +72,11 @@
 
 #arrow {
   color: #008B78;
+}
+
+#errorText{
+  font-family: 'Lato', sans-serif;
+  color: #BE1413;
 }
 
 .light-text {

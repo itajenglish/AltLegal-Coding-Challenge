@@ -10,7 +10,7 @@ class Card extends Component {
       tweets: null
     }
   }
-// 
+//
 //   componentWillMount() {
 //     //Gets Number Of Watchlists and sets number to activeCardNumber in state.
 //     Api.getAllWatchlist()
