@@ -6,5 +6,8 @@ module.exports = {
   },
   addNewWatchlist: (data) => {
     return axios.post('http://localhost:8080/api/watchlist', data)
+  },
+  getOneWatchlist: (card_id) => {
+    return axios.get(`http://localhost:8080/api/watchlist/${card_id}`)
   }
 }

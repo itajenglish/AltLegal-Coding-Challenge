@@ -39,10 +39,6 @@ class SearchBox extends Component {
         printError: false,
         hashtag: event.target.value
       });
-
-      setTimeout(()=>{
-        console.log("Working")
-      },3000)
     }
   }
 
@@ -66,6 +62,7 @@ class SearchBox extends Component {
 
         Api.addNewWatchlist(data)
         .then((response) => {
+          //Calls Component Will Mount Function In App To Refresh State
           this.props.refreshCard()
           console.log(response);
         })
@@ -99,7 +96,6 @@ class SearchBox extends Component {
   }
 
   render() {
-    console.log("worked")
     return (this.renderSearchbox())
   }
 }

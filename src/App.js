@@ -53,7 +53,7 @@ In Order To Know Where To Render SearchBox
   renderCardOne() {
     const state = this.state;
     if (state.card_one_active === true) {
-      return <Card id={1} />
+      return <Card cardID={1} />
     } else if (state.card_one_active === false && state.card_two_active && state.card_three_active === true) {
       return <SearchBox cardID={1} refreshCard={this.componentWillMount.bind(this)} />
     } else if (state.card_one_active === false && state.card_two_active === false && state.card_three_active === true) {
@@ -66,7 +66,7 @@ In Order To Know Where To Render SearchBox
   renderCardTwo() {
     const state = this.state;
     if (state.card_two_active === true) {
-      return (<Card id={2} />)
+      return (<Card cardID={2} />)
     } else if (state.card_two_active === false && state.card_one_active && state.card_three_active === true) {
       return <SearchBox cardID={2} refreshCard={this.componentWillMount.bind(this)} />
     } else if (state.card_two_active === false && state.card_one_active === true && state.card_three_active === false) {
@@ -77,7 +77,7 @@ In Order To Know Where To Render SearchBox
   renderCardThree() {
     const state = this.state;
     if (state.card_three_active === true) {
-      return (<Card id={3} />)
+      return (<Card cardID={3} />)
     } else if (state.card_three_active === false && state.card_one_active && state.card_two_active === true) {
       return <SearchBox cardID={3} refreshCard={this.componentWillMount.bind(this)} />
     }
