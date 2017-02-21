@@ -10,7 +10,7 @@ module.exports = {
   getOneWatchlist: (card_id) => {
     return axios.get(`https://alt-legal-api.herokuapp.com/api/watchlist/${card_id}`)
   },
-  updateWatchlist: (card_id, hashtag) =>{
+  updateWatchlist: (card_id, hashtag) => {
     return axios.put(`https://alt-legal-api.herokuapp.com/api/watchlist/${card_id}`, hashtag)
   },
   deleteWatchlist: (card_id) => {
@@ -19,5 +19,4 @@ module.exports = {
   getTweets: (hashtag) => {
     return axios.get(`https://alt-legal-api.herokuapp.com/api/tweets/${hashtag}`)
   }
-
 }
