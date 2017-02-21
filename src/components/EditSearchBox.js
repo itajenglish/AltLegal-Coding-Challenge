@@ -48,7 +48,6 @@ class EditSearchBox extends Component {
       event.target.value = '';
       this.setState({hashtag: null});
       this.props.updateEditMode();
-      console.log("ESC KEY");
     }
     //If HashTag is Validated By Helper Fcun
     if(valHash(event.target.value) === true){
@@ -69,7 +68,6 @@ class EditSearchBox extends Component {
         .catch((err) => {
           console.log(err);
         })
-        console.log("Enter KEY");
       }
     }
   }

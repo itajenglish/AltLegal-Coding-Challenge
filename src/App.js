@@ -22,7 +22,6 @@ class App extends Component {
     Api.getAllWatchlist()
     .then((response) => {
       this.setState({activeCardNumber: response.data.length});
-      console.log(response);
 
       //Set Card Active State Based On card_id in response.
         response.data.map((watchlist) => {

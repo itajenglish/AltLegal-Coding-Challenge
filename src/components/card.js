@@ -34,7 +34,6 @@ class Card extends Component {
       .then((tweets) => {
         //Set Tweets To State and Turn off Spinner
         this.setState({tweets:tweets.data.statuses, isLoading: false})
-        console.log(this.state.tweets);
       })
       .catch((err) =>{
         console.log(err);
@@ -62,7 +61,6 @@ componentDidMount() {
     .catch((err) => {
       console.log(err);
     }); //Error for getTweets
-    console.log('working')
   }, 180000)
 }
 

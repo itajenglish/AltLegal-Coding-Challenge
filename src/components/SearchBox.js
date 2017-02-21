@@ -47,7 +47,6 @@ class SearchBox extends Component {
     if(event.keyCode === 27){
       event.target.value = '';
       this.setState({hashtag: null})
-      console.log("ESC KEY");
     }
     if(valHash(event.target.value) === true){
       //If Enter Key Pressed Save Hashtag To Database
@@ -64,12 +63,10 @@ class SearchBox extends Component {
         .then((response) => {
           //Calls Component Will Mount Function In App To Refresh State
           this.props.refreshCard()
-          console.log(response);
         })
         .catch((err) => {
           console.log(err);
-        })
-        console.log("Enter KEY");
+        });
       }
     }
   }
