@@ -9,7 +9,8 @@
   "dependencies": {
     "axios": "^0.15.0",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony"
   },
   "scripts": {
     "start": "react-scripts start",
