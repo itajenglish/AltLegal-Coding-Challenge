@@ -1,4 +1,4 @@
-# AltLegal-Coding-Challenge-Backend
+# AltLegal-Coding-Challenge-App
 
 React App Alt Legal Coding Challenge.
 ------------
