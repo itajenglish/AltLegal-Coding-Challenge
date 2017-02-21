@@ -14,6 +14,14 @@
 
 #cardTopContainer {
   height: 60px;
+  padding-top: 0;
+  margin-bottom: 20px;
+  border: 1px solid #9C9C9C;
+}
+
+#cardEditTopContainer {
+  height: 70px;
+  padding-top: 0;
   margin-bottom: 20px;
   border: 1px solid #9C9C9C;
 }
@@ -27,7 +35,19 @@
 #searchBoxContainerError {
   height: 70px;
   margin-bottom: 20px;
+  padding-bottom: 20px;
   border: 1px solid #BE1413;
+}
+
+#EditSearchBoxContainer{
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+#EditSearchBoxContainerError{
+  height: 70px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 #searchBoxContainer:hover {
@@ -92,6 +112,7 @@
 }
 
 #cardHeaderText{
+  padding-top: 12px;
   font-size: 1.8em;
   font-family: 'Montserrat', sans-serif;
 }
@@ -106,7 +127,12 @@
 }
 
 #editButton{
+  margin-top: 12px;
   margin-left: 30px;
+}
+
+#deleteButton{
+  margin-top: 12px;
 }
 
 .button{

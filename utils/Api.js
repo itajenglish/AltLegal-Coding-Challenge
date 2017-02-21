@@ -13,8 +13,10 @@ module.exports = {
   updateWatchlist: (card_id, hashtag) =>{
     return axios.put(`http://localhost:8080/api/watchlist/${card_id}`, hashtag)
   },
+  deleteWatchlist: (card_id) => {
+    return axios.delete(`http://localhost:8080/api/watchlist/${card_id}`)
+  },
   getTweets: (hashtag) => {
-    console.log(hashtag)
     return axios.get(`http://localhost:8080/api/tweets/${hashtag}`)
   }
 

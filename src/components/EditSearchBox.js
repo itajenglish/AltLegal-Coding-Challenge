@@ -46,9 +46,11 @@ class EditSearchBox extends Component {
     //If ESC Key Presed Return To Edit Mode.
     if(event.keyCode === 27){
       event.target.value = '';
-      this.setState({hashtag: null})
+      this.setState({hashtag: null});
+      this.props.updateEditMode();
       console.log("ESC KEY");
     }
+    //If HashTag is Validated By Helper Fcun
     if(valHash(event.target.value) === true){
       //If Enter Key Pressed Save Hashtag To Database
       if(event.keyCode === 13){
@@ -60,8 +62,8 @@ class EditSearchBox extends Component {
         Api.updateWatchlist(card_id, hashtag)
         .then((response) => {
           //Calls Component Will Mount Function In App To Refresh State
-          this.props.updateEditMode()
-          this.props.refreshCard()
+          this.props.updateEditMode();
+          this.props.refreshCard();
           console.log(response);
         })
         .catch((err) => {
@@ -75,7 +77,7 @@ class EditSearchBox extends Component {
   editSearchBox(){
     if (this.state.printError === true){
       return (
-        <div id="searchBoxContainerError">
+        <div id="EditSearchBoxContainerError">
           <div className="panel-body">
             <input id="searchBoxError" placeholder="Add a hashtag" type="text" onBlur={(event) => this.handleBlur(event)} onFocus={(event) => this.handleFocus(event)} onChange={(event) => this.handleChange(event)} />
             <p id="errorText">Spaces,emoji or punctuation may not be used.</p>
@@ -84,7 +86,7 @@ class EditSearchBox extends Component {
       )
     } else {
       return (
-        <div id="searchBoxContainer">
+        <div id="EditSearchBoxContainer">
           <div className="panel-body">
             <input id="searchBox" onKeyDown={(event) => this.handleKeyPress(event)} placeholder="Add a hashtag" type="text" onBlur={(event) => this.handleBlur(event)} onFocus={(event) => this.handleFocus(event)} onChange={(event) => this.handleChange(event)} />
           </div>

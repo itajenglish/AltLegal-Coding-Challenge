@@ -45,6 +45,27 @@ class Card extends Component {
   });//Error for getOneWatchlist
 }
 
+componentDidMount() {
+  //Gets New Tweets Every 3Mins
+  setInterval(() => {
+    this.setState({isLoading: true});
+
+    //Split Hashtag on # to send to backend Via Params
+    const hashtag = hashTagSplit(this.state.hashtag);
+    //Gets New Tweets
+    Api.getTweets(hashtag)
+    .then((tweets) => {
+      //Set Tweets To State and Turn off Spinner
+      this.setState({tweets: tweets.data.statuses, isLoading: false})
+      console.log(this.state.tweets);
+    })
+    .catch((err) => {
+      console.log(err);
+    }); //Error for getTweets
+    console.log('working')
+  }, 180000)
+}
+
   isLoading(){
     if(!this.state.isLoading){
       return (
@@ -76,7 +97,7 @@ class Card extends Component {
   editState() {
     if(this.state.inEditState === true && this.state.inEditMode === false){
       return (
-        <div>
+        <div id="cardTopContainer" onMouseEnter={() => this.setState({inEditState: true})} onMouseLeave={() => this.setState({inEditState: false})} className="panel-body">
           <div className="row">
             <div className="col-xs-4">
               <p id="cardHeaderText" className="normal-text">
@@ -90,7 +111,7 @@ class Card extends Component {
           </button>
             </div>
             <div className="col-xs-4">
-              <button type="button" className="btn btn-danger">
+              <button type="button" onClick={() => this.deleteCard()} id="deleteButton" className="btn btn-danger">
               <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 Delete
           </button>
@@ -101,14 +122,34 @@ class Card extends Component {
     } else if (this.state.inEditState === true && this.state.inEditMode === true){
       return null
     } else if (this.state.inEditState === false && this.state.inEditMode === false){
-      return <p id="cardHeaderText" className="normal-text">{this.state.hashtag}</p>
+      return (
+        <div id="cardTopContainer" onMouseEnter={() => this.setState({inEditState: true})} onMouseLeave={() => this.setState({inEditState: false})} className="panel-body">
+          <p id="cardHeaderText" className="normal-text">{this.state.hashtag}</p>
+        </div>
+      )
     }
+  }
+
+  //Hits Api To Delete Hashtag From Database and Refresh's Card
+  deleteCard() {
+    const card_id = this.state.card_id;
+    Api.deleteWatchlist(card_id)
+    .then(() => {
+      window.location.reload(true);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   //When User Clicks Edit button
   editMode() {
     if(this.state.inEditMode === true){
-      return <EditSearchBox cardID={this.state.card_id} refreshCard={this.refreshCard} updateEditMode={this.updateEditMode} />
+      return (
+        <div id="cardEditTopContainer" onMouseEnter={() => this.setState({inEditState: true})} onMouseLeave={() => this.setState({inEditState: false})} className="panel-body">
+          <EditSearchBox cardID={this.state.card_id} refreshCard={this.refreshCard} updateEditMode={this.updateEditMode} />
+        </div>
+      )
     } else {
       return null
     }
@@ -121,10 +162,8 @@ class Card extends Component {
   render() {
     return (
       <div id="cardContainer">
-        <div id="cardTopContainer" onMouseEnter={() => this.setState({inEditState: true})} onMouseLeave={() => this.setState({inEditState: false})} className="panel-body">
           {this.editState()}
           {this.editMode()}
-        </div>
         <div className="panel-body">
           {this.isLoading()}
         </div>
