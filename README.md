@@ -1,6 +1,6 @@
 # AltLegal-Coding-Challenge-App
 
-React App Alt Legal Coding Challenge.
+React App For Alt Legal Coding Challenge.
 ------------
 ### Setup Instructions
 `Run $ npm install inside root folder`
