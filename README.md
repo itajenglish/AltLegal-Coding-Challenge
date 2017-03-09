@@ -1,11 +1,11 @@
-# AltLegal-Coding-Challenge-App
+# Twitt-Watch-App
 
-React App For Alt Legal Coding Challenge.
+React App For Watching Twitter Feeds For Your Favorite Hashtags.
 ------------
 ### Setup Instructions
 `Run $ npm install inside root folder`
 
-` Start Api Server` - https://github.com/itajenglish/AltLegal-Coding-Challenge-Backend
+` Start Api Server` - https://github.com/itajenglish/Twitt-Watch-Backend
 
 `Run $ npm start`
 
