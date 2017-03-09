@@ -5,7 +5,7 @@ const Header = () => {
     <div className="container-fluid">
       <div id="navbar" className="row">
         <div className="col-xs-6">
-          <img id="banner" className="img-fluid" src={require("../../public/img/Web_Banner_36px.png")} alt=""/>
+          <img id="banner" className="img-fluid" src={require("../../public/img/twitter-icon.png")} alt="Twitter-Icon"/>
         </div>
 
         <div className="col-xs-6">

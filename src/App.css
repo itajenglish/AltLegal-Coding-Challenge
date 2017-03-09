@@ -99,7 +99,8 @@
 }
 
 #banner {
-  zoom: 120%;
+  height: 70px;
+  width: 70px;
 }
 
 #arrow {
@@ -196,6 +197,7 @@
     display: none !important;
   }
   #banner {
-    zoom: 80%;
+    height: 30px;
+    width: 30px;
   }
 }
